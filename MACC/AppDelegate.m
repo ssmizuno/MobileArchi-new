@@ -8,11 +8,22 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "BrowserViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize nav = _nav;
+
+- (BOOL)openURL:(NSURL*)url
+{
+    BrowserViewController *bvc = [[BrowserViewController alloc] initWithUrls:url];
+    [self.nav pushViewController:bvc animated:YES];
+    
+    return YES;
+}
+
 //-------------------------------------------------------
 //アプリケーションの初期化処理
 //-------------------------------------------------------
@@ -24,27 +35,27 @@
     UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];
     self.window.backgroundColor = [UIColor colorWithPatternImage:bgTile];
     //NavigationControllerの追加
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     //ナビゲーションバーの色変更
-    nav.navigationBar.tintColor = [UIColor colorWithRed:0.651 green:0.565 blue:0.451 alpha:0];
+    self.nav.navigationBar.tintColor = [UIColor colorWithRed:0.651 green:0.565 blue:0.451 alpha:0];
     
     //ナビゲーションバーの背景画像設定
     UIImage *navBgImage = [UIImage imageNamed:@"NavigationBar.png"];
     //iOS5用
-    if ([nav.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-        [nav.navigationBar setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
+    if ([self.nav.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        [self.nav.navigationBar setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
     }
     //iOS4.3用
     else {
         UIImageView *navBgImageView = [[UIImageView alloc] initWithImage:navBgImage];
-        navBgImageView.frame = nav.navigationBar.bounds;
+        navBgImageView.frame = self.nav.navigationBar.bounds;
         navBgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         navBgImageView.layer.zPosition = -FLT_MAX;
-        [nav.navigationBar insertSubview:navBgImageView atIndex:0];
+        [self.nav.navigationBar insertSubview:navBgImageView atIndex:0];
     }
     
     //MainViewControllerをrootに設定
-    self.window.rootViewController = nav;
+    self.window.rootViewController = self.nav;
     [self.window makeKeyAndVisible];
     return YES;
 }

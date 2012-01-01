@@ -15,6 +15,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong ,nonatomic) UINavigationController *nav;
+
 @property (strong, nonatomic) MainViewController *viewController;
+
+- (BOOL)openURL:(NSURL*)url;
 
 @end

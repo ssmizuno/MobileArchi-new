@@ -7,14 +7,19 @@
 //
 
 #import "MainViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MainViewController
+
+@synthesize kenBurns;
+
 //-------------------------------------------------------
 //Viewの初期化
 //-------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.view.backgroundColor = [UIColor clearColor];
+        self.title = @"MobileArchi";
     }
     return self;
 }
@@ -27,6 +32,26 @@
 //-------------------------------------------------------
 - (void) loadView {
     [super loadView];
+    
+    self.kenBurns = [[KenBurnsView alloc] initWithFrame:self.view.bounds];
+    self.kenBurns.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:kenBurns];
+    
+    self.kenBurns.layer.borderWidth = 1;
+    self.kenBurns.layer.borderColor = [UIColor clearColor].CGColor;    
+    
+    NSArray *myImages = [NSArray arrayWithObjects:
+                         [UIImage imageNamed:@"01.jpg"],
+                         [UIImage imageNamed:@"02.jpg"],
+                         [UIImage imageNamed:@"03.jpg"],
+                         [UIImage imageNamed:@"04.jpg"],
+                         [UIImage imageNamed:@"05.jpg"], nil];
+    
+    [self.kenBurns animateWithImages:myImages 
+                 transitionDuration:10 
+                               loop:YES 
+                        isLandscape:YES];
+    
     
 }
 

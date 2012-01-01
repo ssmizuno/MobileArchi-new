@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JBKenBurnsView.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController {
+    KenBurnsView *kenBurns;
+}
+
+@property (strong, nonatomic) KenBurnsView *kenBurns;
+
 
 @end
