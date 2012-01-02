@@ -20,6 +20,8 @@
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.view.backgroundColor = [UIColor clearColor];
         self.title = @"MobileArchi";
+        self.tabBarItem.image = [UIImage imageNamed:@"shopping_cart_32.png"]; 
+		self.tabBarItem.badgeValue = @"3";
     }
     return self;
 }
@@ -33,7 +35,7 @@
 - (void) loadView {
     [super loadView];
     
-    self.kenBurns = [[KenBurnsView alloc] initWithFrame:self.view.bounds];
+    self.kenBurns = [[KenBurnsView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
     self.kenBurns.backgroundColor = [UIColor clearColor];
     [self.view addSubview:kenBurns];
     

@@ -14,7 +14,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"ChairsCollection";
+        self.tabBarItem.image = [UIImage imageNamed:@"shopping_cart_32.png"]; 
+		self.tabBarItem.badgeValue = @"3";
     }
     return self;
 }

@@ -9,12 +9,13 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "BrowserViewController.h"
+#import "ChairsCollectionViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 @synthesize nav = _nav;
+@synthesize tabBar = _tabBar;
 
 - (BOOL)openURL:(NSURL*)url
 {
@@ -27,37 +28,62 @@
 //-------------------------------------------------------
 //アプリケーションの初期化処理
 //-------------------------------------------------------
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //-------------------------------------------------------
+    //Windowの初期化
+    //-------------------------------------------------------
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    
+    //-------------------------------------------------------
+    //TabBar用のViewControllerを追加
+    //-------------------------------------------------------
+    MainViewController *mainView = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    ChairsCollectionViewController *chairsView = [[ChairsCollectionViewController alloc] initWithNibName:nil bundle:nil];
+    
+    UINavigationController *view01 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
+    [view01 pushViewController:mainView animated:NO];
+    [self setNavgationBarStyle:view01];    
+    
+    UINavigationController *view02 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
+    [view02 pushViewController:chairsView animated:NO];
+    [self setNavgationBarStyle:view02];
+    
+    self.tabBar = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+    [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, nil] animated:NO];
+     
     //背景パターンの作成
     UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];
-    self.window.backgroundColor = [UIColor colorWithPatternImage:bgTile];
-    //NavigationControllerの追加
-    self.nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.backgroundColor = [UIColor colorWithPatternImage:bgTile];   
+    
+    //MainViewControllerをrootに設定
+    [self.window addSubview:self.tabBar.view];
+    self.window.rootViewController = self.nav;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+//-------------------------------------------------------
+//NavigationBarのstyle変更
+//-------------------------------------------------------
+- (void)setNavgationBarStyle:(UINavigationController *)navBar {
     //ナビゲーションバーの色変更
-    self.nav.navigationBar.tintColor = [UIColor colorWithRed:0.651 green:0.565 blue:0.451 alpha:0];
+    navBar.navigationBar.tintColor = [UIColor colorWithRed:0.651 green:0.565 blue:0.451 alpha:0];
     
     //ナビゲーションバーの背景画像設定
     UIImage *navBgImage = [UIImage imageNamed:@"NavigationBar.png"];
     //iOS5用
-    if ([self.nav.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-        [self.nav.navigationBar setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
+    if ([navBar.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        [navBar.navigationBar setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
     }
     //iOS4.3用
     else {
         UIImageView *navBgImageView = [[UIImageView alloc] initWithImage:navBgImage];
-        navBgImageView.frame = self.nav.navigationBar.bounds;
+        navBgImageView.frame = navBar.navigationBar.bounds;
         navBgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         navBgImageView.layer.zPosition = -FLT_MAX;
-        [self.nav.navigationBar insertSubview:navBgImageView atIndex:0];
+        [navBar.navigationBar insertSubview:navBgImageView atIndex:0];
     }
     
-    //MainViewControllerをrootに設定
-    self.window.rootViewController = self.nav;
-    [self.window makeKeyAndVisible];
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
