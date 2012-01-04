@@ -47,6 +47,8 @@
         {
             [items addObject:[NSNumber numberWithInt:i]];
         }
+        
+        wrap = YES;
     }
     return self;
 }

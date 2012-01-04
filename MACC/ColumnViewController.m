@@ -60,6 +60,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [SVProgressHUD show];
+    
     UISegmentedControl *segControl = [[UISegmentedControl alloc] initWithItems:
                                       [NSArray arrayWithObjects:@"トップニュース", @"近代建築の名作", @"ミュージアム巡り", nil]];
     segControl.frame = CGRectMake(0, 0, self.view.frame.size.width-20, 30);
@@ -67,9 +70,10 @@
     self.navigationItem.titleView = segControl;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [SVProgressHUD dismiss];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
