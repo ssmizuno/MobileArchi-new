@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "BrowserViewController.h"
+#import "ColumnViewController.h"
 #import "ChairsCollectionViewController.h"
 
 @implementation AppDelegate
@@ -38,6 +39,7 @@
     //TabBar用のViewControllerを追加
     //-------------------------------------------------------
     MainViewController *mainView = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    ColumnViewController *columnView = [[ColumnViewController alloc] initWithNibName:nil bundle:nil];
     ChairsCollectionViewController *chairsView = [[ChairsCollectionViewController alloc] initWithNibName:nil bundle:nil];
     
     UINavigationController *view01 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
@@ -45,11 +47,15 @@
     [self setNavgationBarStyle:view01];    
     
     UINavigationController *view02 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
-    [view02 pushViewController:chairsView animated:NO];
+    [view02 pushViewController:columnView animated:NO];
     [self setNavgationBarStyle:view02];
     
+    UINavigationController *view03 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
+    [view03 pushViewController:chairsView animated:NO];
+    [self setNavgationBarStyle:view03];
+    
     self.tabBar = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
-    [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, nil] animated:NO];
+    [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, view03, nil] animated:NO];
      
     //背景パターンの作成
     UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];

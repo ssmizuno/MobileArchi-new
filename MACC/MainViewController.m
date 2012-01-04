@@ -19,9 +19,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.view.backgroundColor = [UIColor clearColor];
-        self.title = @"MobileArchi";
-        self.tabBarItem.image = [UIImage imageNamed:@"shopping_cart_32.png"]; 
-		self.tabBarItem.badgeValue = @"3";
+        self.title = @"information";
     }
     return self;
 }
@@ -50,11 +48,25 @@
                          [UIImage imageNamed:@"05.jpg"], nil];
     
     [self.kenBurns animateWithImages:myImages 
-                 transitionDuration:10 
+                 transitionDuration:5 
                                loop:YES 
                         isLandscape:YES];
     
+    UIImageView *infoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"info.png"]];
+    infoView.frame = CGRectMake(0, -44, 320, 460);
+    [self.view addSubview:infoView];
     
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    version = [@"version " stringByAppendingString:version];
+    
+    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 100)];
+	versionLabel.text = version;
+	versionLabel.backgroundColor = [UIColor clearColor];
+	versionLabel.textAlignment = UITextAlignmentCenter;
+	versionLabel.font = [versionLabel.font fontWithSize:16];
+    versionLabel.shadowColor = [UIColor whiteColor];
+    versionLabel.shadowOffset = CGSizeMake(0.f, 0.5f);
+	[self.view addSubview:versionLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
