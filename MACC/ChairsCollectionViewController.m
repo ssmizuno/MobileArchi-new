@@ -59,7 +59,7 @@
 
 - (void)loadView {
     [super loadView];
-    
+        
     //create carousel
 	self.carousel = [[iCarousel alloc] initWithFrame:self.view.bounds];
 	carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -69,6 +69,20 @@
     
 	//add carousel to view
 	[self.view addSubview:carousel];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [SVProgressHUD show];
+}
+
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [SVProgressHUD dismiss];
 }
 #pragma mark -------------------------------------------------------
 #pragma mark iCarousel methods 
@@ -90,9 +104,10 @@
     //create a numbered view
 	UIView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]];
     UIButton *viewButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    viewButton.frame = CGRectMake(20.0, 90.0, 200.0, 200.0);
+    viewButton.frame = CGRectMake(20.0, 89.0, 200.0, 200.0);
     viewButton.backgroundColor = [UIColor clearColor];
     viewButton.tag = index;
+    [viewButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", index]] forState:UIControlStateNormal];
     [viewButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:viewButton];
 	return view;
