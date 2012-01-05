@@ -11,7 +11,7 @@
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
-#define NUMBER_OF_ITEMS (IS_IPAD? 19: 12)
+#define NUMBER_OF_ITEMS (IS_IPAD? 12: 6)
 #define NUMBER_OF_VISIBLE_ITEMS (IS_IPAD? 19: 7)
 #define ITEM_SPACING 210
 #define INCLUDE_PLACEHOLDERS YES
@@ -88,26 +88,23 @@
 #pragma mark iCarousel methods 
 #pragma mark -------------------------------------------------------
 
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
     return [items count];
 }
 
-- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel
-{
+- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel {
     //limit the number of items views loaded concurrently (for performance reasons)
     return NUMBER_OF_VISIBLE_ITEMS;
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
-{
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index {
     //create a numbered view
 	UIView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]];
     UIButton *viewButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    viewButton.frame = CGRectMake(20.0, 89.0, 200.0, 200.0);
+    viewButton.frame = CGRectMake(20.0, 89.0, 200.0, 202.0);
     viewButton.backgroundColor = [UIColor clearColor];
     viewButton.tag = index;
-    [viewButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", index]] forState:UIControlStateNormal];
+    [viewButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", (++index)]] forState:UIControlStateNormal];
     [viewButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:viewButton];
 	return view;
@@ -117,27 +114,23 @@
     NSLog(@"おした%d", [sender tag]);
 }
 
-- (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel
-{
+- (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel {
 	//note: placeholder views are only displayed if wrapping is disabled
 	return INCLUDE_PLACEHOLDERS? 2: 0;
 }
 
-- (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index
-{
+- (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index {
 	//create a placeholder view
 	UIView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]];
 	return view;
 }
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel
-{
+- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
     //slightly wider than item view
     return ITEM_SPACING;
 }
 
-- (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(CGFloat)offset
-{
+- (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(CGFloat)offset {
     //implement 'flip3D' style carousel
     
     //set opacity based on distance from camera
@@ -150,8 +143,7 @@
     return CATransform3DTranslate(transform, 0.0, 0.0, offset * carousel.itemWidth);
 }
 
-- (BOOL)carouselShouldWrap:(iCarousel *)carousel
-{
+- (BOOL)carouselShouldWrap:(iCarousel *)carousel {
     //wrap all carousels
     return wrap;
 }

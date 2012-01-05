@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ColumnViewController : UITableViewController
+@interface ColumnViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+
+- (void)changeSeg:(UISegmentedControl *)seg;
 
 @end

@@ -32,7 +32,7 @@
 //-------------------------------------------------------
 - (void) loadView {
     [super loadView];
-    
+    //Slideの実装
     self.kenBurns = [[KenBurnsView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
     self.kenBurns.backgroundColor = [UIColor clearColor];
     [self.view addSubview:kenBurns];
@@ -52,16 +52,19 @@
                                loop:YES 
                         isLandscape:YES];
     
+    //Logo画像
     UIImageView *infoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"info.png"]];
     infoView.frame = CGRectMake(0, -44, 320, 460);
     [self.view addSubview:infoView];
     
+    //バージョン表記
+    //バージョン番号取得
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     version = [@"version " stringByAppendingString:version];
     
-    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 100)];
+    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 342.0, self.view.frame.size.width, 25.0)];
 	versionLabel.text = version;
-	versionLabel.backgroundColor = [UIColor clearColor];
+	versionLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.4];
 	versionLabel.textAlignment = UITextAlignmentCenter;
 	versionLabel.font = [versionLabel.font fontWithSize:16];
     versionLabel.shadowColor = [UIColor whiteColor];
@@ -69,39 +72,59 @@
 	[self.view addSubview:versionLabel];
 }
 
+//-------------------------------------------------------
+//Viewが表示される直前に呼ばれる
+//-------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //インジケーターON
     [SVProgressHUD show];
 }
 
+//-------------------------------------------------------
+//Viewが表示された直後に呼ばれる
+//-------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    //インジケーターOFF
     [SVProgressHUD dismiss];
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+//-------------------------------------------------------
+//Viewが非表示される直前に呼ばれる
+//-------------------------------------------------------
+- (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+//-------------------------------------------------------
+//Viewが非表示された直後に呼ばれる
+//-------------------------------------------------------
+- (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+//-------------------------------------------------------
+//回転対応の有無
+//-------------------------------------------------------
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark -------------------------------------------------------
+#pragma mark - Memory
+#pragma mark -------------------------------------------------------
+
+//-------------------------------------------------------
+//メモリリーク時に呼ばれる（インスタンス変数はここでnilにする）
+//-------------------------------------------------------
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.kenBurns = nil;
 }
 
 - (void)didReceiveMemoryWarning
