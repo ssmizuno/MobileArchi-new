@@ -28,6 +28,7 @@
 		CA570E7714B54C0F00F9EEF8 /* 03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6214B54C0F00F9EEF8 /* 03.jpg */; };
 		CA570E7814B54C0F00F9EEF8 /* 04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6314B54C0F00F9EEF8 /* 04.jpg */; };
 		CA570E7914B54C0F00F9EEF8 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6414B54C0F00F9EEF8 /* 05.jpg */; };
+		CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADDBCDF14B66D42009C842F /* ColumnCell.m */; };
 		CAF7733A14B3D96F00CD93C6 /* ColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */; };
 		F565C18614904F1C0064948D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18514904F1C0064948D /* UIKit.framework */; };
 		F565C18814904F1C0064948D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18714904F1C0064948D /* Foundation.framework */; };
@@ -68,6 +69,8 @@
 		CA570E6214B54C0F00F9EEF8 /* 03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 03.jpg; sourceTree = "<group>"; };
 		CA570E6314B54C0F00F9EEF8 /* 04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 04.jpg; sourceTree = "<group>"; };
 		CA570E6414B54C0F00F9EEF8 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 05.jpg; sourceTree = "<group>"; };
+		CADDBCDE14B66D42009C842F /* ColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnCell.h; sourceTree = "<group>"; };
+		CADDBCDF14B66D42009C842F /* ColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCell.m; sourceTree = "<group>"; };
 		CAF7733814B3D96F00CD93C6 /* ColumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnViewController.h; sourceTree = "<group>"; };
 		CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnViewController.m; sourceTree = "<group>"; };
 		F565C18114904F1C0064948D /* MobileArchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileArchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +233,8 @@
 				F565C19814904F1C0064948D /* MainViewController.m */,
 				CAF7733814B3D96F00CD93C6 /* ColumnViewController.h */,
 				CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */,
+				CADDBCDE14B66D42009C842F /* ColumnCell.h */,
+				CADDBCDF14B66D42009C842F /* ColumnCell.m */,
 				F565C1A61490543E0064948D /* ChairsCollectionViewController.h */,
 				F565C1A71490543E0064948D /* ChairsCollectionViewController.m */,
 				CA570E4314B54C0F00F9EEF8 /* Library */,
@@ -337,6 +342,7 @@
 				CA570E6C14B54C0F00F9EEF8 /* iCarousel.m in Sources */,
 				CA570E6D14B54C0F00F9EEF8 /* JBKenBurnsView.m in Sources */,
 				CA570E6F14B54C0F00F9EEF8 /* SVProgressHUD.m in Sources */,
+				CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColumnCell.h"
 
 @interface ColumnViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
