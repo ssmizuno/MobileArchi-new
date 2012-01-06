@@ -8,23 +8,15 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "BrowserViewController.h"
 #import "ColumnViewController.h"
 #import "ChairsCollectionViewController.h"
+#import "BCTabBarController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize nav = _nav;
 @synthesize tabBar = _tabBar;
-
-- (BOOL)openURL:(NSURL*)url
-{
-    BrowserViewController *bvc = [[BrowserViewController alloc] initWithUrls:url];
-    [self.nav pushViewController:bvc animated:YES];
-    
-    return YES;
-}
 
 //-------------------------------------------------------
 //アプリケーションの初期化処理
@@ -54,8 +46,8 @@
     [view03 pushViewController:chairsView animated:NO];
     [self setNavgationBarStyle:view03];
     
-    self.tabBar = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
-    [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, view03, nil] animated:NO];
+    self.tabBar = [[BCTabBarController alloc] initWithNibName:nil bundle:nil];
+    self.tabBar.viewControllers =  [NSArray arrayWithObjects:view01, view02, view03, nil];
      
     //背景パターンの作成
     UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];

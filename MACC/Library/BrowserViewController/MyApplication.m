@@ -58,7 +58,7 @@
 
         // TODO - Update the cast below with the name of your AppDelegate
         // Let's call the method you wrote on your AppDelegate to actually open the BrowserViewController
-        couldWeOpenUrl = [(AppDelegate*)self.delegate openURL:url];
+        //couldWeOpenUrl = [(AppDelegate*)self.delegate openURL:url];
     }
     
     if(!couldWeOpenUrl)

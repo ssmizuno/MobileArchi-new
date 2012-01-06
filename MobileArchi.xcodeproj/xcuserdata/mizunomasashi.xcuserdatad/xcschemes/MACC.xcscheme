@@ -32,9 +32,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F565C18014904F1C0064948D"
-            BuildableName = "MACC.app"
-            BlueprintName = "MACC"
-            ReferencedContainer = "container:MACC.xcodeproj">
+            BuildableName = "MobileArchi.app"
+            BlueprintName = "MobileArchi"
+            ReferencedContainer = "container:MobileArchi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -50,9 +50,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F565C18014904F1C0064948D"
-            BuildableName = "MACC.app"
-            BlueprintName = "MACC"
-            ReferencedContainer = "container:MACC.xcodeproj">
+            BuildableName = "MobileArchi.app"
+            BlueprintName = "MobileArchi"
+            ReferencedContainer = "container:MobileArchi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

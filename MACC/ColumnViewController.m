@@ -10,6 +10,9 @@
 
 
 @implementation ColumnViewController
+
+static NSInteger segNum = 0;
+
 //-------------------------------------------------------
 //Viewの初期化
 //-------------------------------------------------------
@@ -19,6 +22,10 @@
         self.title = @"ArchiColumn";
     }
     return self;
+}
+
+- (NSString *)iconImageName {
+	return @"magnifying-glass.png";
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -63,7 +70,11 @@
 }
 
 - (void)changeSeg:(UISegmentedControl *)seg {
+    [SVProgressHUD showWithStatus:@"NowLoading"];
     NSLog(@"セグメントNo.　%d", seg.selectedSegmentIndex);
+    segNum = seg.selectedSegmentIndex; 
+    [self.tableView reloadData];
+    [SVProgressHUD dismiss];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -109,7 +120,7 @@
         
         cell.cellImage.image = cellImageView;
         
-        cell.cellLabel.text = [NSString stringWithFormat:@"%d番目の記事", indexPath.section+1];
+        cell.cellLabel.text = [NSString stringWithFormat:@"%d - %d番目の記事", segNum, indexPath.section+1];
     }
         
     return cell;
@@ -124,7 +135,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d", indexPath.section);
+    NSLog(@"%d-- %d", indexPath.section, segNum);
+    [self.tableView reloadData];
 
 }
 

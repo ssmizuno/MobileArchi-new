@@ -23,6 +23,10 @@
     }
     return self;
 }
+
+- (NSString *)iconImageName {
+	return @"magnifying-glass.png";
+}
 #pragma mark -------------------------------------------------------
 #pragma mark - View lifecycle
 #pragma mark -------------------------------------------------------

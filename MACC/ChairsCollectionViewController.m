@@ -53,6 +53,10 @@
     return self;
 }
 
+- (NSString *)iconImageName {
+	return @"magnifying-glass.png";
+}
+
 #pragma mark -------------------------------------------------------
 #pragma mark - View lifecycle
 #pragma mark -------------------------------------------------------
@@ -69,6 +73,11 @@
     
 	//add carousel to view
 	[self.view addSubview:carousel];
+    
+    
+    //背景パターンの作成
+    UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:bgTile];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

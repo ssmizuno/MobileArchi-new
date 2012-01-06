@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ColumnCell.h"
 
-@interface ColumnViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ColumnViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (void)changeSeg:(UISegmentedControl *)seg;
 

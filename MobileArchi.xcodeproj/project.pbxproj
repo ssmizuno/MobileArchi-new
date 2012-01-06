@@ -30,6 +30,15 @@
 		CA570E7914B54C0F00F9EEF8 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6414B54C0F00F9EEF8 /* 05.jpg */; };
 		CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADDBCDF14B66D42009C842F /* ColumnCell.m */; };
 		CAF7733A14B3D96F00CD93C6 /* ColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */; };
+		F560104B14B6B8ED00716FA0 /* BCTab.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104014B6B8ED00716FA0 /* BCTab.m */; };
+		F560104C14B6B8ED00716FA0 /* BCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104214B6B8ED00716FA0 /* BCTabBar.m */; };
+		F560104D14B6B8ED00716FA0 /* BCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104414B6B8ED00716FA0 /* BCTabBarController.m */; };
+		F560104E14B6B8ED00716FA0 /* BCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104614B6B8ED00716FA0 /* BCTabBarView.m */; };
+		F560104F14B6B8ED00716FA0 /* UINavigationController+icons.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104814B6B8ED00716FA0 /* UINavigationController+icons.m */; };
+		F560105014B6B8ED00716FA0 /* UIViewController+iconImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F560104A14B6B8ED00716FA0 /* UIViewController+iconImage.m */; };
+		F560105214B6B8FB00716FA0 /* BCTabBarController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F560105114B6B8FB00716FA0 /* BCTabBarController.bundle */; };
+		F560105814B6E7F900716FA0 /* magnifying-glass-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F560105414B6E7F900716FA0 /* magnifying-glass-selected@2x.png */; };
+		F560105A14B6E7F900716FA0 /* magnifying-glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F560105614B6E7F900716FA0 /* magnifying-glass@2x.png */; };
 		F565C18614904F1C0064948D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18514904F1C0064948D /* UIKit.framework */; };
 		F565C18814904F1C0064948D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18714904F1C0064948D /* Foundation.framework */; };
 		F565C18A14904F1C0064948D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18914904F1C0064948D /* CoreGraphics.framework */; };
@@ -73,6 +82,21 @@
 		CADDBCDF14B66D42009C842F /* ColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCell.m; sourceTree = "<group>"; };
 		CAF7733814B3D96F00CD93C6 /* ColumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnViewController.h; sourceTree = "<group>"; };
 		CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnViewController.m; sourceTree = "<group>"; };
+		F560103F14B6B8ED00716FA0 /* BCTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTab.h; sourceTree = "<group>"; };
+		F560104014B6B8ED00716FA0 /* BCTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTab.m; sourceTree = "<group>"; };
+		F560104114B6B8ED00716FA0 /* BCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTabBar.h; sourceTree = "<group>"; };
+		F560104214B6B8ED00716FA0 /* BCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTabBar.m; sourceTree = "<group>"; };
+		F560104314B6B8ED00716FA0 /* BCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTabBarController.h; sourceTree = "<group>"; };
+		F560104414B6B8ED00716FA0 /* BCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTabBarController.m; sourceTree = "<group>"; };
+		F560104514B6B8ED00716FA0 /* BCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTabBarView.h; sourceTree = "<group>"; };
+		F560104614B6B8ED00716FA0 /* BCTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTabBarView.m; sourceTree = "<group>"; };
+		F560104714B6B8ED00716FA0 /* UINavigationController+icons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+icons.h"; sourceTree = "<group>"; };
+		F560104814B6B8ED00716FA0 /* UINavigationController+icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+icons.m"; sourceTree = "<group>"; };
+		F560104914B6B8ED00716FA0 /* UIViewController+iconImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+iconImage.h"; sourceTree = "<group>"; };
+		F560104A14B6B8ED00716FA0 /* UIViewController+iconImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+iconImage.m"; sourceTree = "<group>"; };
+		F560105114B6B8FB00716FA0 /* BCTabBarController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BCTabBarController.bundle; sourceTree = "<group>"; };
+		F560105414B6E7F900716FA0 /* magnifying-glass-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying-glass-selected@2x.png"; sourceTree = "<group>"; };
+		F560105614B6E7F900716FA0 /* magnifying-glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying-glass@2x.png"; sourceTree = "<group>"; };
 		F565C18114904F1C0064948D /* MobileArchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileArchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F565C18514904F1C0064948D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F565C18714904F1C0064948D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +134,7 @@
 		CA570E4314B54C0F00F9EEF8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F560103D14B6B8D400716FA0 /* BCTabber */,
 				CA570E4414B54C0F00F9EEF8 /* BrowserViewController */,
 				CA570E4E14B54C0F00F9EEF8 /* iCarousel */,
 				CA570E5114B54C0F00F9EEF8 /* KenBurns */,
@@ -193,6 +218,28 @@
 				CA570E6414B54C0F00F9EEF8 /* 05.jpg */,
 			);
 			path = Slide;
+			sourceTree = "<group>";
+		};
+		F560103D14B6B8D400716FA0 /* BCTabber */ = {
+			isa = PBXGroup;
+			children = (
+				F560105414B6E7F900716FA0 /* magnifying-glass-selected@2x.png */,
+				F560105614B6E7F900716FA0 /* magnifying-glass@2x.png */,
+				F560103F14B6B8ED00716FA0 /* BCTab.h */,
+				F560104014B6B8ED00716FA0 /* BCTab.m */,
+				F560104114B6B8ED00716FA0 /* BCTabBar.h */,
+				F560104214B6B8ED00716FA0 /* BCTabBar.m */,
+				F560104314B6B8ED00716FA0 /* BCTabBarController.h */,
+				F560104414B6B8ED00716FA0 /* BCTabBarController.m */,
+				F560104514B6B8ED00716FA0 /* BCTabBarView.h */,
+				F560104614B6B8ED00716FA0 /* BCTabBarView.m */,
+				F560104714B6B8ED00716FA0 /* UINavigationController+icons.h */,
+				F560104814B6B8ED00716FA0 /* UINavigationController+icons.m */,
+				F560104914B6B8ED00716FA0 /* UIViewController+iconImage.h */,
+				F560104A14B6B8ED00716FA0 /* UIViewController+iconImage.m */,
+				F560105114B6B8FB00716FA0 /* BCTabBarController.bundle */,
+			);
+			name = BCTabber;
 			sourceTree = "<group>";
 		};
 		F565C17614904F1C0064948D = {
@@ -322,6 +369,9 @@
 				CA570E7714B54C0F00F9EEF8 /* 03.jpg in Resources */,
 				CA570E7814B54C0F00F9EEF8 /* 04.jpg in Resources */,
 				CA570E7914B54C0F00F9EEF8 /* 05.jpg in Resources */,
+				F560105214B6B8FB00716FA0 /* BCTabBarController.bundle in Resources */,
+				F560105814B6E7F900716FA0 /* magnifying-glass-selected@2x.png in Resources */,
+				F560105A14B6E7F900716FA0 /* magnifying-glass@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +393,12 @@
 				CA570E6D14B54C0F00F9EEF8 /* JBKenBurnsView.m in Sources */,
 				CA570E6F14B54C0F00F9EEF8 /* SVProgressHUD.m in Sources */,
 				CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */,
+				F560104B14B6B8ED00716FA0 /* BCTab.m in Sources */,
+				F560104C14B6B8ED00716FA0 /* BCTabBar.m in Sources */,
+				F560104D14B6B8ED00716FA0 /* BCTabBarController.m in Sources */,
+				F560104E14B6B8ED00716FA0 /* BCTabBarView.m in Sources */,
+				F560104F14B6B8ED00716FA0 /* UINavigationController+icons.m in Sources */,
+				F560105014B6B8ED00716FA0 /* UIViewController+iconImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

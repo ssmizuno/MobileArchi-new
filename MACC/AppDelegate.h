@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@class BCTabBarController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong ,nonatomic) UINavigationController *nav;
 
-@property (strong ,nonatomic) UITabBarController *tabBar;
+@property (strong ,nonatomic) BCTabBarController *tabBar;
 
-- (BOOL)openURL:(NSURL*)url;
 - (void)setNavgationBarStyle:(UINavigationController *)navBar;
 
 @end
