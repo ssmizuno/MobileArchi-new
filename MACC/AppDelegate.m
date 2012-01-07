@@ -10,7 +10,6 @@
 #import "MainViewController.h"
 #import "ColumnViewController.h"
 #import "ChairsCollectionViewController.h"
-#import "BCTabBarController.h"
 
 @implementation AppDelegate
 
@@ -46,8 +45,8 @@
     [view03 pushViewController:chairsView animated:NO];
     [self setNavgationBarStyle:view03];
     
-    self.tabBar = [[BCTabBarController alloc] initWithNibName:nil bundle:nil];
-    self.tabBar.viewControllers =  [NSArray arrayWithObjects:view01, view02, view03, nil];
+    self.tabBar = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+    [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, view03, nil]];
      
     //背景パターンの作成
     UIImage *bgTile = [UIImage imageNamed:@"bg_tile.jpg"];

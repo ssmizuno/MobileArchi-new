@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@class BCTabBarController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarDelegate>
 
@@ -17,7 +16,7 @@
 
 @property (strong ,nonatomic) UINavigationController *nav;
 
-@property (strong ,nonatomic) BCTabBarController *tabBar;
+@property (strong ,nonatomic) UITabBarController *tabBar;
 
 - (void)setNavgationBarStyle:(UINavigationController *)navBar;
 
