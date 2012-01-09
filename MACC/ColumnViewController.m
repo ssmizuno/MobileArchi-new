@@ -69,10 +69,10 @@ static NSInteger segNum = 0;
     [segControl addTarget:self action:@selector(changeSeg:) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)changeSeg:(UISegmentedControl *)seg {
+- (void)changeSeg:(UISegmentedControl *)sender {
     [SVProgressHUD showWithStatus:@"NowLoading"];
-    NSLog(@"セグメントNo.　%d", seg.selectedSegmentIndex);
-    segNum = seg.selectedSegmentIndex; 
+    NSLog(@"セグメントNo.　%d", sender.selectedSegmentIndex);
+    segNum = sender.selectedSegmentIndex; 
     [self.tableView reloadData];
     [SVProgressHUD dismiss];
 }
@@ -100,8 +100,20 @@ static NSInteger segNum = 0;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 4;
+    
+    NSInteger num;
+    switch (segNum) {
+        case 0:
+            num = 4;
+            break;
+        case 1:
+            num = 3;
+            break;
+        case 2:
+            num = 2;
+            break;
+    }
+    return num;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -111,7 +123,7 @@ static NSInteger segNum = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    
+    NSLog(@"テーブル読み込み直し%d", segNum);
     ColumnCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[ColumnCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -119,8 +131,7 @@ static NSInteger segNum = 0;
         UIImage *cellImageView = [UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", indexPath.section+1]];
         
         cell.cellImage.image = cellImageView;
-        
-        cell.cellLabel.text = [NSString stringWithFormat:@"%d - %d番目の記事", segNum, indexPath.section+1];
+        cell.cellLabel.text = [NSString stringWithFormat:@"%d-%d番目の記事(ニュース)", indexPath.section, indexPath.section+1];
     }
         
     return cell;
@@ -136,7 +147,6 @@ static NSInteger segNum = 0;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%d-- %d", indexPath.section, segNum);
-    [self.tableView reloadData];
 
 }
 
