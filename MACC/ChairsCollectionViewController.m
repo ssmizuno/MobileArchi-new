@@ -6,6 +6,7 @@
 //  Copyright (c) 2011年 SSkikaku. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ChairsCollectionViewController.h"
 #import "iCarousel.h"
 
@@ -63,6 +64,9 @@
 
 - (void)loadView {
     [super loadView];
+    
+    AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"%@", [appdelegate.dataDictionary objectForKey:@"response"]);
         
     //create carousel
 	self.carousel = [[iCarousel alloc] initWithFrame:self.view.bounds];

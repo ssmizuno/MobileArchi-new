@@ -11,9 +11,13 @@
 
 @interface MainViewController : UIViewController {
     KenBurnsView *kenBurns;
+    NSDictionary *getData;
 }
 
 @property (strong, nonatomic) KenBurnsView *kenBurns;
 
+@property (strong, nonatomic) NSDictionary *getData;
+
+- (void)HTTPRequestStart;
 
 @end

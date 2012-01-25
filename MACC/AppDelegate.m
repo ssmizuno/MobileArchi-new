@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NSURLConnection+Blocks.h"
 #import "MainViewController.h"
 #import "ColumnViewController.h"
 #import "ChairsCollectionViewController.h"
@@ -16,6 +17,8 @@
 @synthesize window = _window;
 @synthesize nav = _nav;
 @synthesize tabBar = _tabBar;
+
+@synthesize dataDictionary = _dataDictionary;
 
 //-------------------------------------------------------
 //アプリケーションの初期化処理
@@ -29,22 +32,26 @@
     //-------------------------------------------------------
     //TabBar用のViewControllerを追加
     //-------------------------------------------------------
-    MainViewController *mainView = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-    ColumnViewController *columnView = [[ColumnViewController alloc] initWithNibName:nil bundle:nil];
-    ChairsCollectionViewController *chairsView = [[ChairsCollectionViewController alloc] initWithNibName:nil bundle:nil];
     
+    //viewController01
+    MainViewController *mainView = [[MainViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *view01 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
     [view01 pushViewController:mainView animated:NO];
-    [self setNavgationBarStyle:view01];    
+    [self setNavgationBarStyle:view01];
     
+    //viewController02
+    ColumnViewController *columnView = [[ColumnViewController alloc] initWithNibName:nil bundle:nil];    
     UINavigationController *view02 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
     [view02 pushViewController:columnView animated:NO];
     [self setNavgationBarStyle:view02];
     
+    //viewController03
+    ChairsCollectionViewController *chairsView = [[ChairsCollectionViewController alloc] initWithNibName:nil bundle:nil];    
     UINavigationController *view03 = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
     [view03 pushViewController:chairsView animated:NO];
     [self setNavgationBarStyle:view03];
     
+    //tabbarの作成
     self.tabBar = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
     [self.tabBar setViewControllers:[NSArray arrayWithObjects:view01, view02, view03, nil]];
      
@@ -96,7 +103,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+    NSLog(@"アプリ起動");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

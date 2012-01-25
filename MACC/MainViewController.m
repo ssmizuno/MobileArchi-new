@@ -6,12 +6,14 @@
 //  Copyright (c) 2011年 SSkikaku. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "MainViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NSURLConnection+Blocks.h"
 
 @implementation MainViewController
 
-@synthesize kenBurns;
+@synthesize kenBurns, getData;
 
 //-------------------------------------------------------
 //Viewの初期化
@@ -81,8 +83,11 @@
 //-------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //インジケーターON
-    [SVProgressHUD show];
+    
+    if (!self.getData) {
+        [self HTTPRequestStart];
+    }
+     
 }
 
 //-------------------------------------------------------
@@ -90,9 +95,6 @@
 //-------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //インジケーターOFF
-    [SVProgressHUD dismiss];
-    
 }
 
 //-------------------------------------------------------
@@ -115,6 +117,41 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark -------------------------------------------------------
+#pragma mark - Seaver Access
+#pragma mark -------------------------------------------------------
+
+//-------------------------------------------------------
+//サーバーから情報を取得する
+//-------------------------------------------------------
+
+- (void)HTTPRequestStart {
+    
+    //インジケーターON
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilearchi.jp"]];
+    [NSURLConnection sendRequest:request completeBlock:^(NSData *receivedData) {
+        //ダウンロード成功
+        //appDelegateのDictionaryを呼び出す
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        //取得したデータをインスタンス変数に代入
+        self.getData = [NSDictionary dictionaryWithObject:receivedData forKey:@"response"];
+        //appDelegateのDictionaryに代入
+        appdelegate.dataDictionary = self.getData;
+        
+        NSLog(@"OKKKKK\n%@", [appdelegate.dataDictionary objectForKey:@"response"]); 
+        //HUDを閉じる
+        [SVProgressHUD dismissWithSuccess:@"ダウンロード完了" afterDelay:0.5];
+        NSLog(@"OK\n%@", [getData objectForKey:@"response"]);
+        
+    } errorBlock:^(NSError *error) {
+        //ダウンロード失敗
+        NSLog(@"NG");
+        [SVProgressHUD dismissWithError:@"ダウンロード失敗" afterDelay:0.5];
+    }];
 }
 
 #pragma mark -------------------------------------------------------

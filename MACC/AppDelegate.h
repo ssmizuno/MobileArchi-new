@@ -10,13 +10,20 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarDelegate> {
+    
+    NSDictionary *dataDictionary;
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong ,nonatomic) UINavigationController *nav;
 
 @property (strong ,nonatomic) UITabBarController *tabBar;
+
+@property (strong, nonatomic) NSDictionary *dataDictionary;
+
 
 - (void)setNavgationBarStyle:(UINavigationController *)navBar;
 
