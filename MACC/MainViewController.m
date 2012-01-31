@@ -144,7 +144,7 @@
         
         NSLog(@"OKKKKK\n%@", [appdelegate.dataDictionary objectForKey:@"response"]); 
         //HUDを閉じる
-        [SVProgressHUD dismissWithSuccess:@"ダウンロード完了" afterDelay:0.5];
+        [SVProgressHUD dismiss];
         NSLog(@"OK\n%@", [getData objectForKey:@"response"]);
         
     } errorBlock:^(NSError *error) {

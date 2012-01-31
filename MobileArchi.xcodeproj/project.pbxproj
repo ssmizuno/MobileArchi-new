@@ -27,6 +27,7 @@
 		CA570E7814B54C0F00F9EEF8 /* 04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6314B54C0F00F9EEF8 /* 04.jpg */; };
 		CA570E7914B54C0F00F9EEF8 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA570E6414B54C0F00F9EEF8 /* 05.jpg */; };
 		CA77416A14CE37E100A83DC7 /* NSURLConnection+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = CA77416914CE37E100A83DC7 /* NSURLConnection+Blocks.m */; };
+		CA84511714D63E5A00899727 /* Column_TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA84511614D63E5A00899727 /* Column_TopView.m */; };
 		CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADDBCDF14B66D42009C842F /* ColumnCell.m */; };
 		CAF7733A14B3D96F00CD93C6 /* ColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */; };
 		F565C18614904F1C0064948D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F565C18514904F1C0064948D /* UIKit.framework */; };
@@ -86,6 +87,8 @@
 		CA570E6414B54C0F00F9EEF8 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 05.jpg; sourceTree = "<group>"; };
 		CA77416814CE37E100A83DC7 /* NSURLConnection+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Blocks.h"; sourceTree = "<group>"; };
 		CA77416914CE37E100A83DC7 /* NSURLConnection+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Blocks.m"; sourceTree = "<group>"; };
+		CA84511514D63E5A00899727 /* Column_TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column_TopView.h; sourceTree = "<group>"; };
+		CA84511614D63E5A00899727 /* Column_TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column_TopView.m; sourceTree = "<group>"; };
 		CADDBCDE14B66D42009C842F /* ColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnCell.h; sourceTree = "<group>"; };
 		CADDBCDF14B66D42009C842F /* ColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCell.m; sourceTree = "<group>"; };
 		CAF7733814B3D96F00CD93C6 /* ColumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnViewController.h; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				F565C19814904F1C0064948D /* MainViewController.m */,
 				CAF7733814B3D96F00CD93C6 /* ColumnViewController.h */,
 				CAF7733914B3D96F00CD93C6 /* ColumnViewController.m */,
+				CA84511514D63E5A00899727 /* Column_TopView.h */,
+				CA84511614D63E5A00899727 /* Column_TopView.m */,
 				CADDBCDE14B66D42009C842F /* ColumnCell.h */,
 				CADDBCDF14B66D42009C842F /* ColumnCell.m */,
 				F565C1A61490543E0064948D /* ChairsCollectionViewController.h */,
@@ -409,6 +414,7 @@
 				CA570E6F14B54C0F00F9EEF8 /* SVProgressHUD.m in Sources */,
 				CADDBCE014B66D42009C842F /* ColumnCell.m in Sources */,
 				CA77416A14CE37E100A83DC7 /* NSURLConnection+Blocks.m in Sources */,
+				CA84511714D63E5A00899727 /* Column_TopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +438,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: masashi mizuno (WKBCPVLV3R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: masashi mizuno (WKBCPVLV3R)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -447,6 +454,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "D4FFE41D-2973-47F5-BAC1-72A897F932E5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D4FFE41D-2973-47F5-BAC1-72A897F932E5";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -457,7 +466,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ss kikaku ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ss kikaku ltd";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -466,6 +476,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "DC4264EB-B618-4090-8D2D-35138A575E80";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC4264EB-B618-4090-8D2D-35138A575E80";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -474,6 +486,8 @@
 		F565C1A014904F1C0064948D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: masashi mizuno (WKBCPVLV3R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: masashi mizuno (WKBCPVLV3R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MACC/MobileArchi-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
@@ -485,6 +499,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = MobileArchi;
+				PROVISIONING_PROFILE = "D4FFE41D-2973-47F5-BAC1-72A897F932E5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D4FFE41D-2973-47F5-BAC1-72A897F932E5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -492,6 +508,8 @@
 		F565C1A114904F1C0064948D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ss kikaku ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ss kikaku ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MACC/MobileArchi-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
@@ -503,6 +521,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = MobileArchi;
+				PROVISIONING_PROFILE = "DC4264EB-B618-4090-8D2D-35138A575E80";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC4264EB-B618-4090-8D2D-35138A575E80";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

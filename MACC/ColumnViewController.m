@@ -69,10 +69,10 @@ static NSInteger segNum = 0;
     [segControl addTarget:self action:@selector(changeSeg:) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)changeSeg:(UISegmentedControl *)sender {
+- (void)changeSeg:(UISegmentedControl *)seg {
     [SVProgressHUD showWithStatus:@"NowLoading"];
-    NSLog(@"セグメントNo.　%d", sender.selectedSegmentIndex);
-    segNum = sender.selectedSegmentIndex; 
+    NSLog(@"セグメントNo.　%d", seg.selectedSegmentIndex);
+    segNum = seg.selectedSegmentIndex; 
     [self.tableView reloadData];
     [SVProgressHUD dismiss];
 }
@@ -128,18 +128,18 @@ static NSInteger segNum = 0;
     if (cell == nil) {
         cell = [[ColumnCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        UIImage *cellImageView = [UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", indexPath.section+1]];
-        
-        cell.cellImage.image = cellImageView;
-        cell.cellLabel.text = [NSString stringWithFormat:@"%d-%d番目の記事(ニュース)", indexPath.section, indexPath.section+1];
     }
+    
+    UIImage *cellImageView = [UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg", indexPath.section+segNum]];        
+    cell.cellImage.image = cellImageView;
+    cell.cellLabel.text = [NSString stringWithFormat:@"%d-%d番目の記事(ニュース)", segNum, indexPath.section+1];
         
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 65.0;  // それ以外の行の高さを50にする
+    return 65.0;
 }
 
 #pragma mark - Table view delegate
