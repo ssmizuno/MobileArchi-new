@@ -24,10 +24,6 @@ static NSInteger segNum = 0;
     return self;
 }
 
-- (NSString *)iconImageName {
-	return @"magnifying-glass.png";
-}
-
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
